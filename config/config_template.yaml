@@ -1,0 +1,40 @@
+# config_template.yaml
+# Copy to config.yaml and fill in your API keys.
+# config.yaml is gitignored — never commit keys.
+
+# US Census Bureau API key
+# Get one free at: https://api.census.gov/data/key_signup.html
+census_api_key: "YOUR_CENSUS_API_KEY_HERE"
+
+# Meta Ad Library API access token
+# Requires approved researcher access: https://www.facebook.com/ads/library/api/
+meta_access_token: "YOUR_META_ACCESS_TOKEN_HERE"
+
+# Analysis parameters
+analysis:
+  election_years: [2018, 2020, 2022, 2024]
+  state_fips: "13"          # Georgia
+  ad_window_days: 90        # Days before election to collect ads
+  min_impressions: 100      # Minimum impressions threshold
+
+# Topic modeling parameters
+topic_modeling:
+  num_topics: 10
+  random_state: 42
+  passes: 10
+  chunksize: 100
+  no_below: 5               # Min document frequency
+  no_above: 0.90            # Max document frequency (relaxed from 0.5 for small corpus)
+
+# Sentiment analysis parameters
+sentiment:
+  method: "vader"           # "vader" (recommended) or "textblob"
+  # VADER is designed for social media text; TextBlob is general-purpose.
+  # See src/analysis/sentiment_analysis.py for comparison details.
+
+# Paths (relative to project root)
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  models: "models"
+  results: "results"
