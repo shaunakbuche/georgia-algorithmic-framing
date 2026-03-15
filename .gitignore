@@ -1,0 +1,9 @@
+config/config.yaml
+*.log
+__pycache__/
+*.pyc
+venv/
+data/raw/
+models/*.pkl
+models/*.model
+.DS_Store
